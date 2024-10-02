@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santiago's Resume</title>
+    <title>Santiago Cravino - Interactive Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .resume-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        pdf-viewer {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background: #007BFF;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #ddd;
+            font-size: 0.8em;
+        }
+    </style>
 </head>
 <body>
-    <embed src="Santiago Cravino Resume.pdf" width="800px" height="2100px" type="application/pdf">
+    <div class="resume-container">
+        <div class="header">
+            <h1>Santiago Cravino</h1>
+            <p>Interactive Resume</p>
+        </div>
+        <object class="pdf-viewer" data="Santiago Cravino Resume.pdf" type="application/pdf">
+            <embed src="Santiago Cravino Resume.pdf" type="application/pdf" />
+            <p>This browser does not support PDFs. Please download the PDF to view it: <a href="Santiago Cravino Resume.pdf">Download PDF</a>.</p>
+        </object>
+        <div class="footer">
+            <p>&copy; 2024 Santiago Cravino | For an interactive experience or to download, please ensure JavaScript is enabled or use a compatible PDF viewer.</p>
+        </div>
+    </div>
 </body>
 </html>
