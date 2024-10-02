@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santiago Cravino Resume</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
     <div class="resume-container">
         <header class="header">
             <div class="header-content">
-                <h1>Santiago Cravino</h1>
+                <div class="name-and-social">
+                    <h1>Santiago Cravino</h1>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/santiago-cravino" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="https://github.com/cravinos" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i data-feather="github"></i>
+                        </a>
+                    </div>
+                </div>
                 <p>Ex-Amazon, Ex-Flexport, Volunteer @ CVS Health & RWJ Barnabas Health</p>
             </div>
             <div class="header-actions">
                 <a href="#about-me" class="nav-link">About Me</a>
-                <a href="Santiago_Cravino_Resume.pdf" download class="button">Download Resume</a>
+                <a href="Santiago_Cravino_Resume.pdf" download class="nav-link">Download Resume</a>
             </div>
         </header>
         <main>
@@ -47,6 +58,8 @@
     </div>
 
     <script>
+        feather.replace();
+
         var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
