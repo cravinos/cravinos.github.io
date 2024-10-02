@@ -107,16 +107,18 @@ body {
 }
 
 .about-me {
-    background-color: var(--secondary-color);
+    background-color: #ffffff;
     padding: 24px;
     margin-top: 24px;
     border-radius: 8px;
+    color: #333333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .about-me h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 16px;
-    color: var(--text-color);
+    color: #1e1e1e;
     font-weight: 600;
 }
 
@@ -124,7 +126,7 @@ body {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #333333;
 }
 
 .collapsible {
@@ -162,7 +164,7 @@ body {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #333333;
 }
 
 .footer {
