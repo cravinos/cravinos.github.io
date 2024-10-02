@@ -3,105 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santiago Cravino</title>
-    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1/dist/fontkit.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <title>Santiago Cravino Resume</title>
     <style>
-        body, html {
-            height: 100%;
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Reset default styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             font-family: 'Roboto', sans-serif;
-            background-color: #e9ecef;
+            background-color: #f5f7fa;
             color: #333;
+            line-height: 1.6;
         }
+
         .resume-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 30px auto;
-            background: #ffffff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+
         .header {
-            background: #2C3E50;
-            color: #ECF0F1;
-            padding: 30px;
+            background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+            color: #fff;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
         }
+
         .header h1 {
-            margin: 0;
             font-size: 2.5em;
+            margin-bottom: 10px;
         }
+
         .header p {
-            margin: 5px 0 0 0;
+            font-size: 1.2em;
             font-style: italic;
         }
+
+        .button-container {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .button {
+            background-color: #E74C3C;
+            border: none;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #C0392B;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 30%;
+            background-color: #f9fafc;
+            padding: 20px;
+            border-right: 1px solid #e6e9ec;
+        }
+
+        .sidebar h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #2C3E50;
+        }
+
+        .sidebar p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
         .pdf-container {
+            width: 70%;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
         }
-        #pdf-viewer {
+
+        .pdf-viewer {
             width: 100%;
-            height: 80vh;
+            height: 800px;
             border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .controls {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255,255,255,0.8);
-            padding: 10px;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .control-btn {
-            background: #3498DB;
-            border: none;
-            color: white;
-            padding: 5px 15px;
-            margin: 0 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1em;
-        }
+
         .footer {
-            background: #34495E;
+            background: #2C3E50;
             color: #bdc3c7;
             text-align: center;
-            padding: 15px 0;
+            padding: 15px;
             font-size: 0.9em;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+
+        @media (max-width: 992px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .sidebar,
+            .pdf-container {
+                width: 100%;
+            }
+
+            .pdf-viewer {
+                height: 600px;
+            }
         }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 8px;
-        }
-        .close-btn {
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .pdf-viewer {
+                height: 500px;
+            }
+
+            .button-container {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -110,101 +157,32 @@
         <div class="header">
             <h1>Santiago Cravino</h1>
             <p>Ex-Amazon, Ex-Flexport, Volunteer & CVS Health & RWJ Barnabas Health</p>
-        </div>
-        <div class="pdf-container">
-            <canvas id="pdf-viewer"></canvas>
-            <div class="controls">
-                <button class="control-btn" onclick="zoomIn()">Zoom In</button>
-                <button class="control-btn" onclick="zoomOut()">Zoom Out</button>
-                <button class="control-btn" onclick="nextPage()">Next</button>
-                <button class="control-btn" onclick="prevPage()">Prev</button>
+            <div class="button-container">
+                <a href="Santiago_Cravino_Resume.pdf" download class="button">Download Resume</a>
             </div>
         </div>
-        <div id="about-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
+        <div class="content">
+            <div class="sidebar">
                 <h2>About Me</h2>
-                <p>Hey! My name is Santiago, and I’m passionate about building things and solving problems, which is what ultimately drove me to pursue a career in software engineering. My journey with technology started early—back when I was a kid, I was always tinkering with gadgets at home, taking apart computers, and building my own systems from scratch. I loved the challenge of understanding how different components worked together and the satisfaction that came when everything clicked into place.
+                <p>Hey! My name is Santiago, and I’m passionate about building things and solving problems, which is what ultimately drove me to pursue a career in software engineering. My journey with technology started early—back when I was a kid, I was always tinkering with gadgets at home, taking apart computers, and building my own systems from scratch. I loved the challenge of understanding how different components worked together and the satisfaction that came when everything clicked into place.</p>
 
-                    Over the years, my curiosity led me deeper into more ambitious projects. I became heavily involved in the open-source Windows operating system community, creating custom versions optimized for gaming and pushing various findings and improvements. This experience allowed me to contribute significantly to the competitive gaming world, where I’ve been able to enhance performance and streamline user experiences.
-                    
-                    One of the most challenging yet rewarding projects I worked on was with the new Z790 Asus motherboards. When they came out, there were a lot of hidden BIOS variables that people struggled to edit due to safeguards set in place for the general public to not mess with these settings and configurations. I found ways to navigate those challenges and figured out how to make these adjustments using tools like Grub or SCEWIN—something many people thought impossible at the time.
-                    
-                    My drive to solve problems isn’t limited to tech alone. In college, I also led my rugby team, which taught me invaluable lessons about teamwork, leadership, and resilience. These qualities have shaped my approach as an engineer—I’m not just about solving technical problems, but also about collaborating effectively, supporting my team, and leading initiatives to tackle complex challenges.
-                    
-                    For me, software engineering is the perfect blend of my passions—whether it’s pushing the boundaries of what’s possible, finding creative solutions to complex issues, or making an impact on the gaming and tech world. I’m always looking for the next challenge, and I thrive in environments that allow me to build, innovate, and grow.</p>
+                <p>Over the years, my curiosity led me deeper into more ambitious projects. I became heavily involved in the open-source Windows operating system community, creating custom versions optimized for gaming and pushing various findings and improvements. This experience allowed me to contribute significantly to the competitive gaming world, where I’ve been able to enhance performance and streamline user experiences.</p>
+
+                <p>One of the most challenging yet rewarding projects I worked on was with the new Z790 Asus motherboards. When they came out, there were a lot of hidden BIOS variables that people struggled to edit due to safeguards set in place for the general public to not mess with these settings and configurations. I found ways to navigate those challenges and figured out how to make these adjustments using tools like Grub or SCEWIN—something many people thought impossible at the time.</p>
+
+                <p>My drive to solve problems isn’t limited to tech alone. In college, I also led my rugby team, which taught me invaluable lessons about teamwork, leadership, and resilience. These qualities have shaped my approach as an engineer—I’m not just about solving technical problems, but also about collaborating effectively, supporting my team, and leading initiatives to tackle complex challenges.</p>
+
+                <p>For me, software engineering is the perfect blend of my passions—whether it’s pushing the boundaries of what’s possible, finding creative solutions to complex issues, or making an impact on the gaming and tech world. I’m always looking for the next challenge, and I thrive in environments that allow me to build, innovate, and grow.</p>
+            </div>
+            <div class="pdf-container">
+                <object class="pdf-viewer" data="Santiago_Cravino_Resume.pdf" type="application/pdf">
+                    <p>Your browser does not support PDFs. <a href="Santiago_Cravino_Resume.pdf">Download the PDF</a>.</p>
+                </object>
             </div>
         </div>
         <div class="footer">
-            <p>&copy; 2024 Santiago Cravino | <a href="#" onclick="document.getElementById('about-modal').style.display='block'">About Me</a> | For the best experience, use a modern browser or download the PDF.</p>
+            &copy; 2024 Santiago Cravino | For the best experience, use a modern browser or download the PDF.
         </div>
     </div>
-
-    <script>
-    let pdfDoc = null;
-    let pageNum = 1;
-    const scale = 1.5;
-    const canvas = document.getElementById('pdf-viewer');
-    const ctx = canvas.getContext('2d');
-
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
-
-    // Load the PDF
-    const loadingTask = pdfjsLib.getDocument('Santiago_Cravino_Resume.pdf');
-    loadingTask.promise.then(doc => {
-        pdfDoc = doc;
-        renderPage(pageNum);
-    });
-
-    function renderPage(num) {
-        pdfDoc.getPage(num).then(page => {
-            const viewport = page.getViewport({scale: scale});
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            const renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            page.render(renderContext);
-        });
-    }
-
-    function nextPage() {
-        if (pageNum >= pdfDoc.numPages) return;
-        pageNum++;
-        renderPage(pageNum);
-    }
-
-    function prevPage() {
-        if (pageNum <= 1) return;
-        pageNum--;
-        renderPage(pageNum);
-    }
-
-    function zoomIn() {
-        scale += 0.5;
-        renderPage(pageNum);
-    }
-
-    function zoomOut() {
-        if (scale > 0.5) scale -= 0.5;
-        renderPage(pageNum);
-    }
-
-    // Modal control
-    const modal = document.getElementById('about-modal');
-    const span = document.getElementsByClassName("close-btn")[0];
-
-    span.onclick = function() { 
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
 </body>
 </html>
