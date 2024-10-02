@@ -3,7 +3,7 @@
 :root {
     --background-color: #1e1e1e;
     --text-color: #ffffff;
-    --accent-color: #ffffff;
+    --accent-color: #c2dbed;
     --secondary-color: #2c2c2c;
     --hover-color: #3a3a3a;
     --border-color: rgba(255, 255, 255, 0.1);
@@ -107,18 +107,16 @@ body {
 }
 
 .about-me {
-    background-color: #ffffff;
+    background-color: var(--secondary-color);
     padding: 24px;
     margin-top: 24px;
     border-radius: 8px;
-    color: #333333;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .about-me h2 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 16px;
-    color: #1e1e1e;
+    color: var(--text-color);
     font-weight: 600;
 }
 
@@ -126,12 +124,12 @@ body {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: #333333;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .collapsible {
     background-color: transparent;
-    color: var(--accent-color);
+    color: var(--text-color);
     cursor: pointer;
     padding: 0;
     border: none;
@@ -164,7 +162,7 @@ body {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: #333333;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .footer {
