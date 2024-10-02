@@ -4,236 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santiago Cravino Resume</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .resume-container {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            background-color: #2C3E50;
-            color: #fff;
-            padding: 20px;
-            position: relative;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
-
-        .header p {
-            font-size: 1em;
-            font-style: italic;
-        }
-
-        .nav-links {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-        }
-
-        .nav-link {
-            background-color: transparent;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1em;
-            margin-right: 15px;
-            padding: 8px 12px;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: #fff;
-            color: #2C3E50;
-        }
-
-        .button-container {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        .button {
-            background-color: #007BFF;
-            border: none;
-            color: #fff;
-            padding: 10px 25px;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .pdf-container {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 800px;
-            border: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .about-me {
-            padding: 30px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-        }
-
-        .about-me h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: #2C3E50;
-        }
-
-        .about-me p {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .collapsible {
-            background-color: transparent;
-            color: #007BFF;
-            cursor: pointer;
-            padding: 0;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1em;
-            display: inline;
-            margin: 0;
-        }
-
-        .collapsible:after {
-            content: ' [Read More]';
-            font-weight: normal;
-        }
-
-        .active:after {
-            content: ' [Read Less]';
-            font-weight: normal;
-        }
-
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
-
-        .collapsible-content p {
-            padding: 0;
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .footer {
-            background-color: #2C3E50;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5em;
-            }
-
-            .pdf-viewer {
-                height: 600px;
-            }
-
-            .button-container, .nav-links {
-                position: static;
-                transform: none;
-                margin-top: 10px;
-            }
-
-            .header {
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="resume-container">
-        <div class="header">
-            <h1>Santiago Cravino</h1>
-            <p>Ex-Amazon, Ex-Flexport, Volunteer @ CVS Health & RWJ Barnabas Health</p>
-            <div class="nav-links">
-                <a href="#about-me" class="nav-link">About Me</a>
+        <header class="header">
+            <div class="header-content">
+                <h1>Santiago Cravino</h1>
+                <p>Ex-Amazon, Ex-Flexport, Volunteer @ CVS Health & RWJ Barnabas Health</p>
             </div>
-            <div class="button-container">
+            <div class="header-actions">
+                <a href="#about-me" class="nav-link">About Me</a>
                 <a href="Santiago_Cravino_Resume.pdf" download class="button">Download Resume</a>
             </div>
-        </div>
-        <div class="content">
-            <div class="pdf-container">
-                <object class="pdf-viewer" data="Santiago_Cravino_Resume.pdf" type="application/pdf">
+        </header>
+        <main>
+            <section class="pdf-container">
+                <iframe class="pdf-viewer" src="Santiago_Cravino_Resume.pdf" title="Santiago Cravino Resume">
                     <p>Your browser does not support PDFs. <a href="Santiago_Cravino_Resume.pdf">Download the PDF</a>.</p>
-                </object>
-            </div>
-            <div class="about-me" id="about-me">
+                </iframe>
+            </section>
+            <section class="about-me" id="about-me">
                 <h2>About Me</h2>
-                <p>Hey! My name is Santiago, and I’m passionate about building things and solving problems, which is what ultimately drove me to pursue a career in software engineering.</p>
+                <p>Hey! My name is Santiago, and I'm passionate about building things and solving problems, which is what ultimately drove me to pursue a career in software engineering.</p>
                 <button type="button" class="collapsible"></button>
                 <div class="collapsible-content">
                     <p>My journey with technology started early—back when I was a kid, I was always tinkering with gadgets at home, taking apart computers, and building my own systems from scratch. I loved the challenge of understanding how different components worked together and the satisfaction that came when everything clicked into place.</p>
 
-                    <p>Over the years, my curiosity led me deeper into more ambitious projects. I became heavily involved in the open-source Windows operating system community, creating custom versions optimized for gaming and pushing various findings and improvements. This experience allowed me to contribute significantly to the competitive gaming world, where I’ve been able to enhance performance and streamline user experiences.</p>
+                    <p>Over the years, my curiosity led me deeper into more ambitious projects. I became heavily involved in the open-source Windows operating system community, creating custom versions optimized for gaming and pushing various findings and improvements. This experience allowed me to contribute significantly to the competitive gaming world, where I've been able to enhance performance and streamline user experiences.</p>
 
                     <p>One of the most challenging yet rewarding projects I worked on was with the new Z790 Asus motherboards. When they came out, there were a lot of hidden BIOS variables that people struggled to edit due to safeguards set in place for the general public to not mess with these settings and configurations. I found ways to navigate those challenges and figured out how to make these adjustments using tools like Grub or SCEWIN—something many people thought impossible at the time.</p>
 
-                    <p>My drive to solve problems isn’t limited to tech alone. In college, I also led my rugby team, which taught me invaluable lessons about teamwork, leadership, and resilience. These qualities have shaped my approach as an engineer—I’m not just about solving technical problems, but also about collaborating effectively, supporting my team, and leading initiatives to tackle complex challenges.</p>
+                    <p>My drive to solve problems isn't limited to tech alone. In college, I also led my rugby team, which taught me invaluable lessons about teamwork, leadership, and resilience. These qualities have shaped my approach as an engineer—I'm not just about solving technical problems, but also about collaborating effectively, supporting my team, and leading initiatives to tackle complex challenges.</p>
 
-                    <p>For me, software engineering is the perfect blend of my passions—whether it’s pushing the boundaries of what’s possible, finding creative solutions to complex issues, or making an impact on the gaming and tech world. I’m always looking for the next challenge, and I thrive in environments that allow me to build, innovate, and grow.</p>
+                    <p>For me, software engineering is the perfect blend of my passions—whether it's pushing the boundaries of what's possible, finding creative solutions to complex issues, or making an impact on the gaming and tech world. I'm always looking for the next challenge, and I thrive in environments that allow me to build, innovate, and grow.</p>
                 </div>
-            </div>
-        </div>
-        <div class="footer">
+            </section>
+        </main>
+        <footer class="footer">
             &copy; 2024 Santiago Cravino | For the best experience, use a modern browser or download the PDF.
-        </div>
+        </footer>
     </div>
 
     <script>
