@@ -35,9 +35,9 @@ function Header() {
         <a href="#about-me" className="nav-link">
           About Me
         </a>
-        <a href="Santiago_Cravino_Resume.pdf" download className="nav-link">
+        {/* <a href="Santiago_Cravino_Resume.pdf" download className="nav-link">
           Download Resume
-        </a>
+        </a> */}
       </div>
     </header>
   );
