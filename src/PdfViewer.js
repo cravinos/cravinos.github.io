@@ -2,16 +2,21 @@
 import React from 'react';
 
 function PdfViewer() {
+  const pdfUrl = `${process.env.PUBLIC_URL}/Santiago_Cravino_Resume.pdf`;
+
   return (
     <section className="pdf-container">
       <iframe
         className="pdf-viewer"
-        src="Santiago_Cravino_Resume.pdf"
+        src={pdfUrl}
         title="Santiago Cravino Resume"
       >
         <p>
           Your browser does not support PDFs.{' '}
-          <a href="Santiago_Cravino_Resume.pdf">Download the PDF</a>.
+          <a href={pdfUrl} download>
+            Download the PDF
+          </a>
+          .
         </p>
       </iframe>
     </section>
