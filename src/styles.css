@@ -139,31 +139,26 @@ body {
     display: inline;
     margin: 0;
     font-weight: 500;
-}
-
-.collapsible:after {
-    content: ' [Read More]';
-    font-weight: normal;
-}
-
-.active:after {
-    content: ' [Read Less]';
-    font-weight: normal;
-}
-
-.collapsible-content {
-    max-height: 0;
+  }
+  
+  
+  .collapsible-content {
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-}
-
-.collapsible-content p {
+  }
+  
+  .collapsible-content p {
     padding: 0;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 16px;
     color: rgba(255, 255, 255, 0.8);
-}
+  }
+  
+  
+  .collapsible-content.expanded {
+    max-height: 1000px; 
+  }
 
 .footer {
     text-align: center;
